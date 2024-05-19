@@ -84,9 +84,9 @@ const LoginPage = () => {
                         marginBlockEnd: 24,
                     }}
                 >
-                    <ProFormCheckbox noStyle name="autoLogin">
-                        自动登录
-                    </ProFormCheckbox>
+                    {/*<ProFormCheckbox noStyle name="autoLogin">*/}
+                    {/*    自动登录*/}
+                    {/*</ProFormCheckbox>*/}
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a
                         style={{
