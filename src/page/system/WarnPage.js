@@ -4,6 +4,7 @@ import {useRequest} from "ahooks";
 import getAlarmRules from "../../service/getAlarmRules";
 import {useEffect, useState} from "react";
 import updateAlarmRules from "../../service/updateAlarmRules";
+import {keyMap} from "../../utils/keyMap";
 
 function WarnPage(){
     const [rules, setRules] = useState({});
@@ -36,9 +37,10 @@ function WarnPage(){
 
     return (
         <ContentContainer>
-            <Flex wrap="wrap" justify="space-between">
-                {Object.entries(rules).map(([key, [min, max]]) => (
-                    <Card title={key} key={key} style={{width: '33.33%', marginBottom: '20px'}}>
+            <Flex wrap="wrap" justify="start">
+                {Object.entries(rules).map(([key, [min, max]]) => {
+                    if(key==="sn"||key==="gzbj") return null;
+                    return (<Card title={keyMap[key]} key={key} style={{width: '33%', marginBottom: '20px'}}>
                         <Space>
                             <Space>
                                 <div>最小值</div>
@@ -70,8 +72,8 @@ function WarnPage(){
                             </Space>
                             <Button type="primary" onClick={() => handleSave(key, min, max)}>保存</Button>
                         </Space>
-                    </Card>
-                ))}
+                    </Card>);
+                })}
             </Flex>
         </ContentContainer>
     )
