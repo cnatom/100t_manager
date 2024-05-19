@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {Button, DatePicker, Layout, message, Space, Table, theme} from "antd";
 import {useRequest} from "ahooks";
-import getRange from "../../model/getRange";
-import getData from "../../model/getData";
+import getRange from "../../service/getRange";
+import getData from "../../service/getData";
 import {jsonToTableData} from "../../utils/parser";
 import {Content} from "antd/lib/layout/layout";
 import moment from "moment/moment";

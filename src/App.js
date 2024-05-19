@@ -13,7 +13,8 @@ import SnPage from "./page/history/SnPage";
 import HomePage from "./page/HomePage";
 import PassPage from "./page/system/PassPage";
 import RealPage from "./page/realtime/RealPage";
-import {SocketProvider} from "./model/SocketProvider";
+import {SocketProvider} from "./service/SocketProvider";
+import WarnPage from "./page/system/WarnPage";
 
 function genRoute(path, element,children) {
     return {
@@ -41,9 +42,7 @@ export const myRoutes = [
         genRoute("/admin/realtime",<SocketProvider><RealPage/></SocketProvider>),
         // 系统管理
         genRoute("/admin/system/password",<PassPage/>),
-        genRoute("/admin/system/warn",<div>
-            报警规则
-        </div>),
+        genRoute("/admin/system/warn",<WarnPage/>),
 
 
     ]),

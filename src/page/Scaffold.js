@@ -34,11 +34,7 @@ const items = [
 ];
 
 function Scaffold() {
-    const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
-
-    // const items = useMemo(() => genItems(routesJson), [routesJson]);
-
     return (
         <Layout>
             <Layout>

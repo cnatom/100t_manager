@@ -1,7 +1,7 @@
 import {Card, Flex} from "antd";
 import ValueChangeCard from "../../ui/ValueChangeCard";
 import {useContext} from "react";
-import {SocketDataContext} from "../../model/SocketProvider";
+import {SocketDataContext} from "../../service/SocketProvider";
 
 function RealPage(){
     const {data} = useContext(SocketDataContext);

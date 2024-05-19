@@ -1,7 +1,7 @@
 // 修改密码页面
 import {Button, Card, DatePicker, Flex, Form, Input, Layout, message, Space, Table} from "antd";
 import {useRequest} from "ahooks";
-import changePassword from "../../model/changePassword";
+import changePassword from "../../service/changePassword";
 import {useNavigate} from "react-router-dom";
 import moment from "moment";
 import {Content} from "antd/lib/layout/layout";

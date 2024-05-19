@@ -3,7 +3,7 @@ import {LoginFormPage, ProConfigProvider, ProFormCheckbox, ProFormText,} from '@
 import {Button, Form, Input, message, Modal, theme} from 'antd';
 import {useState} from "react";
 import {useRequest} from "ahooks";
-import login from "../../model/login";
+import login from "../../service/login";
 import {useNavigate} from "react-router-dom";
 
 
