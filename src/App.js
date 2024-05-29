@@ -49,7 +49,6 @@ export const myRoutes = [
     genRoute("/",<Navigate to="/login"/>),
 ];
 
-console.log(myRoutes);
 const router = createBrowserRouter(myRoutes);
 
 function App() {
