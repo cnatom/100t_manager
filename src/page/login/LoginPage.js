@@ -1,5 +1,5 @@
 import {LockOutlined, UserOutlined,} from '@ant-design/icons';
-import {LoginFormPage, ProConfigProvider, ProFormCheckbox, ProFormText,} from '@ant-design/pro-components';
+import {LoginFormPage, ProConfigProvider, ProFormText,} from '@ant-design/pro-components';
 import {Button, Form, Input, message, Modal, theme} from 'antd';
 import {useState} from "react";
 import {useRequest} from "ahooks";
