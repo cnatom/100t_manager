@@ -1,4 +1,4 @@
-import {Button, Card, Flex, InputNumber, message, Space} from "antd";
+import {Alert, Button, Card, Divider, Flex, InputNumber, message, Space, Tooltip} from "antd";
 import ContentContainer from "../template/ContentContainer";
 import {useRequest} from "ahooks";
 import getAlarmRules from "../../service/getAlarmRules";
@@ -37,43 +37,51 @@ function WarnPage(){
 
     return (
         <ContentContainer>
-            <Flex wrap="wrap" justify="start">
-                {Object.entries(rules).map(([key, [min, max]]) => {
-                    if(key==="sn"||key==="gzbj") return null;
-                    return (<Card title={keyMap[key]} key={key} style={{width: '33%', marginBottom: '20px'}}>
-                        <Space>
+            <Flex vertical>
+                <Alert
+                    message="输入 -1 即为“无限制”"
+                    type="info"
+                    showIcon
+                />
+                <Divider/>
+                <Flex wrap="wrap" justify="start">
+                    {Object.entries(rules).map(([key, [min, max]]) => {
+                        if(key==="sn"||key==="gzbj") return null;
+                        return (<Card title={keyMap[key]} key={key} style={{width: '33%', marginBottom: '20px'}}>
                             <Space>
-                                <div>最小值</div>
-                                <InputNumber
-                                    placeholder={min === -1 ? '无限制' : null}
-                                    defaultValue={min === -1 ? null : min}
-                                    onChange={value => {
-                                        if (value === undefined) {
-                                            min = -1;
-                                        } else {
-                                            min = value;
-                                        }
-                                    }}
-                                />
+                                <Space>
+                                    <div>最小值</div>
+                                    <InputNumber
+                                        placeholder={min === -1 ? '无限制' : null}
+                                        value={min === -1 ? null : min}
+                                        onChange={value => {
+                                            if (value === undefined) {
+                                                min = -1;
+                                            } else {
+                                                min = value;
+                                            }
+                                        }}
+                                    />
+                                </Space>
+                                <Space>
+                                    最大值
+                                    <InputNumber
+                                        placeholder={max === -1 ? '无限制' : null}
+                                        value={max === -1 ? null : max}
+                                        onChange={value => {
+                                            if (value === undefined) {
+                                                max = -1;
+                                            } else {
+                                                max = value;
+                                            }
+                                        }}
+                                    />
+                                </Space>
+                                <Button type="primary" onClick={() => handleSave(key, min, max)}>保存</Button>
                             </Space>
-                            <Space>
-                                最大值
-                                <InputNumber
-                                    placeholder={max === -1 ? '无限制' : null}
-                                    defaultValue={max === -1 ? null : max}
-                                    onChange={value => {
-                                        if (value === undefined) {
-                                            max = -1;
-                                        } else {
-                                            max = value;
-                                        }
-                                    }}
-                                />
-                            </Space>
-                            <Button type="primary" onClick={() => handleSave(key, min, max)}>保存</Button>
-                        </Space>
-                    </Card>);
-                })}
+                        </Card>);
+                    })}
+                </Flex>
             </Flex>
         </ContentContainer>
     )
