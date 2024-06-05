@@ -31,7 +31,7 @@ function WarnPage(){
 
     const handleSave = (key, min, max) => {
         console.log(`Saving ${key}: min = ${min}, max = ${max}`);
-        runUpdateRules(key,min,max);
+        runUpdateRules(key, min,max);
         console.log("hello");
     }
 
@@ -39,7 +39,7 @@ function WarnPage(){
         <ContentContainer>
             <Flex vertical>
                 <Alert
-                    message="输入 -1 即为“无限制”"
+                    message="将数值清空，点击保存，可修改上（下）限为“无限制”"
                     type="info"
                     showIcon
                 />
@@ -52,28 +52,20 @@ function WarnPage(){
                                 <Space>
                                     <div>最小值</div>
                                     <InputNumber
-                                        placeholder={min === -1 ? '无限制' : null}
-                                        value={min === -1 ? null : min}
+                                        placeholder={'无限制'}
+                                        defaultValue={min}
                                         onChange={value => {
-                                            if (value === undefined) {
-                                                min = -1;
-                                            } else {
-                                                min = value;
-                                            }
+                                            min = value;
                                         }}
                                     />
                                 </Space>
                                 <Space>
                                     最大值
                                     <InputNumber
-                                        placeholder={max === -1 ? '无限制' : null}
-                                        value={max === -1 ? null : max}
+                                        placeholder={'无限制'}
+                                        defaultValue={max}
                                         onChange={value => {
-                                            if (value === undefined) {
-                                                max = -1;
-                                            } else {
-                                                max = value;
-                                            }
+                                            max = value;
                                         }}
                                     />
                                 </Space>
