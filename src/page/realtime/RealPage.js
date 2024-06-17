@@ -30,9 +30,6 @@ function RealPage(){
             <ValueChangeCard title={"边柜电流1"} value={data['bgdl1']} unit={'A'}/>
             <ValueChangeCard title={"边柜电流2"} value={data['bgdl2']} unit={'A'}/>
             <ValueChangeCard title={"边柜电流3"} value={data['bgdl3']} unit={'A'}/>
-            <ValueChangeCard title={"边柜电流4"} value={data['bgdl4']} unit={'A'}/>
-            <ValueChangeCard title={"边柜电流5"} value={data['bgdl5']} unit={'A'}/>
-            <ValueChangeCard title={"边柜电流6"} value={data['bgdl6']} unit={'A'}/>
         </ContentCard>
         <Flex>
             <ContentCard style={{width:'50%',marginRight:'16px'}} title={"励磁电流电压"}>
