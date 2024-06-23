@@ -20,7 +20,7 @@ function RealPage(){
         </Flex>
 
         <ContentCard title={"温度"}>
-            <ValueChangeCard title={"动圈温度"} value={data['scdy']} unit={'℃'}/>
+            <ValueChangeCard title={"动圈温度"} value={data['dqwd']} unit={'℃'}/>
             <ValueChangeCard title={"上励磁温度"} value={data['slcwd']} unit={'℃'}/>
             <ValueChangeCard title={"下励磁温度"} value={data['xlcwd']} unit={'℃'}/>
             <ValueChangeCard title={"水箱温度"} value={data['sxwd']} unit={'℃'}/>
