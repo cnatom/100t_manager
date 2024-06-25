@@ -58,10 +58,10 @@ export function jsonToTableData(jsonList, keys, names) {
         dataChild['status'] = ['正常'];
         for (const key of keys) {
             dataChild[key] = data[key];
-            if(key==="sn"||key==="gzbj"){
-                if(data[key]===1) {
-                    dataChild['status'] = ['异常'];
-                }
+            if(key === 'sn'){
+                dataChild['status'] = [data[key] === 1 ? '启动' : '关闭'];
+            }else if (key === 'gzbj'){
+                dataChild['status'] = [data[key] === 1 ? '异常' : '正常'];
             }else if ((alarm_rules[key][0] !== null && data[key] < alarm_rules[key][0])||(alarm_rules[key][1] !== null && data[key] > alarm_rules[key][1])) {
                 if(dataChild['status'][0] === '正常'){
                     dataChild['status'] = [];
