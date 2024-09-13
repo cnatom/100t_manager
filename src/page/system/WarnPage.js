@@ -32,7 +32,6 @@ function WarnPage(){
     const handleSave = (key, min, max) => {
         console.log(`Saving ${key}: min = ${min}, max = ${max}`);
         runUpdateRules(key, min,max);
-        console.log("hello");
     }
 
     return (

@@ -15,6 +15,7 @@ import PassPage from "./page/system/PassPage";
 import RealPage from "./page/realtime/RealPage";
 import {SocketProvider} from "./service/SocketProvider";
 import WarnPage from "./page/system/WarnPage";
+import SettingPage from "./page/system/SettingPage";
 
 function genRoute(path, element,children) {
     return {
@@ -43,20 +44,20 @@ export const myRoutes = [
         // 系统管理
         genRoute("/admin/system/password",<PassPage/>),
         genRoute("/admin/system/warn",<WarnPage/>),
-
+        genRoute("/admin/system/setting",<SettingPage/>),
 
     ]),
     genRoute("/",<Navigate to="/login"/>),
 ];
 
-const router = createBrowserRouter(myRoutes);
-
 function App() {
+
+    const router = createBrowserRouter(myRoutes);
+
     return (
         <ConfigProvider locale={zhCN}>
             <RouterProvider router={router}/>
         </ConfigProvider>
-
     );
 }
 

@@ -30,6 +30,7 @@ const items = [
     genItem("系统管理", '/admin/system', <SettingOutlined/>, [
         genItem('修改密码', '/admin/system/password'),
         genItem('报警规则', '/admin/system/warn'),
+        genItem('视图设置','/admin/system/setting')
     ])
 ];
 
@@ -39,9 +40,6 @@ function Scaffold() {
         <Layout>
             <Layout>
                 <Sider
-                    // collapsible
-                    // collapsed={collapsed}
-                    // onCollapse={setCollapsed}
                     style={{minHeight: '100vh'}}
 
                 >
