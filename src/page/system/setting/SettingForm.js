@@ -76,22 +76,24 @@ const SettingsForm = ({initialChartData, onSave, template}) => {
             layout="vertical"
             onFinish={() => onSave(formData)}
         >
-            <Form.Item label="图表标题">
+            {formData.showTitle !== false ? <Form.Item label="图表标题">
                 <Input
                     value={formData.title}
                     onChange={e => handleInputChange(e.target.value, 'title')}
                 />
-            </Form.Item>
+            </Form.Item> : null}
             {Object.entries(formData.config).map(([key, value]) => {
                 return renderFormItem(key, value, template, (value) => {
                     handleInputChange(value, 'config', key);
                 });
             })}
-            <Collapse accordion>
+            {formData.type !== 'bool' ? <Collapse accordion>
                 {formData.items.map((item, index) => {
-                    console.log(item);
+                    if(item.name==='边柜电流1'){
+                        console.log(item.unit);
+                    }
                     return (
-                        <Collapse.Panel header={`Item ${index + 1}: ${item.name}`} key={item.id}>
+                        <Collapse.Panel header={`Item ${index + 1}: ${(item.name===null || item.name==='')?item.id.toUpperCase():item.name}`} key={item.id}>
                             <Form.Item label="标题">
                                 <Input
                                     value={item.name}
@@ -104,7 +106,7 @@ const SettingsForm = ({initialChartData, onSave, template}) => {
                                     onChange={checked => handleInputChange(checked, 'visible', index)}
                                 />
                             </Form.Item>
-                            {item.unit ? <Form.Item label="标题">
+                            {(item.unit !== null && item.unit !== undefined) ? <Form.Item label="单位">
                                 <Input
                                     value={item.unit}
                                     onChange={e => handleInputChange(e.target.value, 'unit', index)}
@@ -113,7 +115,7 @@ const SettingsForm = ({initialChartData, onSave, template}) => {
                         </Collapse.Panel>
                     );
                 })}
-            </Collapse>
+            </Collapse> : null}
             <Form.Item style={{
                 marginTop: 20
             }}>
