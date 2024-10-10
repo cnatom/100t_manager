@@ -1,7 +1,9 @@
+import {HOST} from "../config";
+
 export default function getAlarmRules(){
     return new Promise((resolve, reject)=>{
         // 创建一个URL对象
-        const url = new URL('http://127.0.0.1:5000/get_alarm_rules');
+        const url = new URL(`http://${HOST}:5000/get_alarm_rules`);
 
         fetch(url, {
             method: 'GET',

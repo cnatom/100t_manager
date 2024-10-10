@@ -1,7 +1,9 @@
+import {HOST} from "../config";
+
 export default function login(username, password){
     return new Promise((resolve, reject)=>{
         // 创建一个URL对象
-        const url = new URL('http://127.0.0.1:5000/login');
+        const url = new URL(`http://${HOST}:5000/login`);
 
         fetch(url, {
             method: 'POST',

@@ -1,7 +1,9 @@
+import {HOST} from "../config";
+
 export default function getData({start_time, end_time, page, page_size}){
     return new Promise((resolve, reject)=>{
         // 创建一个URL对象
-        const url = new URL('http://127.0.0.1:5000/get_data');
+        const url = new URL(`http://${HOST}:5000/get_data`);
 
         // 创建一个URLSearchParams对象
         const params = {}

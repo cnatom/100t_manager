@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import io from 'socket.io-client';
+import {HOST} from "../config";
 
 export const SocketDataContext = React.createContext();
 export const SocketProvider = ({ children }) => {
@@ -7,7 +8,7 @@ export const SocketProvider = ({ children }) => {
     const [data,setData] = useState({});
 
     useEffect(() => {
-        const socket = io('ws://127.0.0.1:5000', {
+        const socket = io(`ws://${HOST}:5000`, {
             cors: {
                 origin: '*',
             }
